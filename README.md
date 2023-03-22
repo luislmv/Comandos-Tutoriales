@@ -1,5 +1,4 @@
-# Índice
-## Comandos-Tutoriales
+# Comandos-Tutoriales
 En este repo iré subiendo tutoriales sobre comandos e instrucciones en distintos lenguajes o intérpretes.
-## Prueba de índice
-esto es una prueba
+## Comandos de Git
+Este archivo contiene información sobre los comandos más usados en el sistema de control de versiones **Git**
