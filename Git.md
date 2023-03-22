@@ -1,4 +1,6 @@
-# Comandos básicos de Git
+# Contenido
+
+## Comandos básicos de Git
 
 Conocer la versión actual de git
 ```zsh
@@ -67,13 +69,14 @@ Tomar una fotografía del estado actual del proyecto (hacer un commit)
 #Toma una fotografía de los archivos en el escenario.
 git commit -m "Comentario del en le commit"
 
-#Añade todos los archivos al stage y les tota una fotografía (equivale a "add ." sequido del un "commit -m").
+#Añade todos los archivos al stage y les tota una fotografía (equivale a "add ." sequido del un "commit -m", sólo añade los archivos a los que se les ha dado seguimiento, pero que tienen cambios pendientes).
 git commit -am "Comentario del en le commit"
 ```
 Reestablecer el repositorio al estado del último commit
 ```zsh
 git checkout -- .
 ```
+## Esto es una prueba
 Mostrar información de lar ramas del repositorio
 ```zsh
 #Muesta las ramas en el proyecto, se resalta la rama en la que estamos trabajando actualmente.
