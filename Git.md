@@ -1,7 +1,6 @@
-# Contenido
+# Comandos de Git
 
-## Comandos básicos de Git
-
+## Información (versión y ayuda)
 Conocer la versión actual de git
 ```zsh
 git --versión
@@ -17,7 +16,7 @@ git help
 #Se puedce desplegar la ayuda de algún comando dentro de git (por ejemp. commit).
 git help commit
 ```
-Configuraciones generales de Git
+## Configuraciones generales de Git
 ```zsh
 #Establece el nombre de mi usuario git.
 git config --global user.name "luislmv" 
@@ -44,6 +43,7 @@ git config --global --list
 #Editar el archivo de configuración.
 git config --global -e
 ```
+## Nuevo repositorio e información de su estado
 Crear un repositorio en el directorio actual
 ```zsh
 #Crea la carpeta ".git" donde se guardará toada la información del repositorio en el directorio actual.
@@ -53,6 +53,7 @@ Conocer el estado actual del repesitorio
 ```zsh
 git status
 ```
+## Stage y commits
 Añadir y eliminiar archivos del stage (escenario)
 ```zsh
 #Añade zshrc al stage (sólo funciona si hay cambios en zshrc o si, por alguna razón, aún no se le da seguimiento a zshrc).
@@ -72,12 +73,13 @@ git commit -m "Comentario del en le commit"
 #Añade todos los archivos al stage y les tota una fotografía (equivale a "add ." sequido del un "commit -m", sólo añade los archivos a los que se les ha dado seguimiento, pero que tienen cambios pendientes).
 git commit -am "Comentario del en le commit"
 ```
+## Moverse por la historia del repositorio
 Reestablecer el repositorio al estado del último commit
 ```zsh
 git checkout -- .
 ```
-## Esto es una prueba
-Mostrar información de lar ramas del repositorio
+## Ramas del repositorio
+Mostrar información de la ramas del repositorio
 ```zsh
 #Muesta las ramas en el proyecto, se resalta la rama en la que estamos trabajando actualmente.
 git branch
