@@ -17,6 +17,7 @@ git help
 #Se puedce desplegar la ayuda de algún comando dentro de git (por ejemp. commit).
 git help commit
 ```
+
 ## Configuraciones generales de Git
 
 ```zsh
@@ -50,6 +51,7 @@ git config --global --list
 #Editar el archivo de configuración.
 git config --global -e
 ```
+
 ## Nuevo repositorio e información de su estado
 
 Crear un repositorio en el directorio actual
@@ -61,6 +63,7 @@ Conocer el estado actual del repesitorio
 ```zsh
 git status
 ```
+
 ## Añadir archivos al Stage (escenario)
 
 Añadir y eliminiar archivos del stage
@@ -97,13 +100,45 @@ git commit -m "Comentario descriptivo en le commit"
 
 #Añade todos los archivos al stage y les tota una fotografía (equivale a "add ." sequido del un "commit -m", sólo añade los archivos a los que se les ha dado seguimiento, pero que tienen cambios pendientes).
 git commit -am "Comentario descriptivo en le commit"
+
+#Cambia el comentario del último commit por "Nuevo comentario descriptivo".
+git commit --amend -m "Nuevo comentario descriptivo"
 ```
+
+## Cambios en los archivos
+
+```zsh
+#Muestra los cambios en el estado actual de los archivos modificados (que no están agregados al stage) respecto al estado de los mismos en el último commit (si algún archivo no tiene commit, los cambios de ese archivo no se mostrarán).
+git diff
+
+#Muestra los cambios en el estado actual de los archivos en el stage respecto al estado del último commit (tambien muestra los cambiso de los archivos que no tiene commit aún).
+git diff --staged
+```
+Lo anterior es muy util, pero es mucho más cómodo usar la interfaz visual de los editores (por ejemm. **VSCode**).
+
 ## Moverse por la historia del repositorio
+
 Reestablecer el repositorio al estado del último commit
 ```zsh
+#Deshace todos los cambios en el proyecto posteriores al último commit.
 git checkout -- .
+
+#Elimina el último commit sin deshacer los cambios en los archivos (no funciona en zsh).
+git reset --soft HEAD^
+
+#Igual que el anterior pero funcina tanto en bash como en zsh.
+git reset --soft HEAD~
+
+#Elimina los últimos 'i' commits realizado (no zsh).
+git reset --soft HEAD^i
+
+#Igual que el anterior (bash, zsh).
+git reset --soft HEAD~i
 ```
+
+
 ## Ramas del repositorio
+
 Mostrar información de la ramas del repositorio
 ```zsh
 #Muesta las ramas en el proyecto, se resalta la rama en la que estamos trabajando actualmente.
@@ -112,7 +147,9 @@ git branch
 #También muestra esta información.
 git status
 ```
+
 Cambiar el nombre de las ramas
+
 ```zsh
 #Cambia el nombre de la rama de nombre-viejo a nombre-nuevo.
 git branch -m nombre-viejo nombre-nuevo
