@@ -247,3 +247,25 @@ git branch -D nombre-rama
 #Igual que la anterior.
 git branch -d nombre-rama -f
 ```
+## Etiquetas (tags)
+
+```zsh
+#Crea una etiqueta (que apunta al último commit de la rama actual) llamada "nombre-tag". Puede ser para destacar una versión importante, candidata o final.
+git tag nombre-tag
+
+#Crea una etiqueta anotada para el último commit en la rama actual. Donde, "nombre-tag" (va entrecomillado a diferencia de la forma anterior) es el nombre de la etiqueta. Adicionalmete va acompañado de un mensaje más detallado (necesidad, importación, motivación, situación o estado del proyecto, etc.) para la etiqueta.
+git tag -a "nombre-tag" -m "Mensaje explicativo de la etiqueta."
+
+#Similar al caso previo, pero habre un editor para añadir el mensaje.
+git tag -a "nombre-tag"
+
+#Crea una etiqueta anotada en el commit cuyo hash es "n-hash" (por ejem: 5825c22). Esto se usa para añadir etiquetas en cualquir punto de la historia del repo (en cualquier commit de cualquier rama).
+git tag -a "nombre-tag" -m "Mensaje explicativo de la etiqueta." n-hash
+
+#Muestra todas las estiquetas en el repo.
+git tag
+
+#Elimina la etiqueta llamada "nombre-tag".
+git tag -d nombre-tag
+```
+Se recomienda que `nombre-tag` tenga una estructura cemática del tipo `vN.M.K` por ejem: `v1.0.3`. Donde `N`, `M` y `K` son números enteros que representan distintos niveles de importancia de la versión. Más detalladamente, el número `N` representa una versión mayuor, en la cual hay grandes cambios y puede ser incompatible con versiones previas. El número `K` representa pequeñas correcciones de erros detectados, etc. (cambios menores). El número `M` puede tener cambios más importantes, pero no tan grandes como para generar incompatibilidad o romper partes de la versión previa.
