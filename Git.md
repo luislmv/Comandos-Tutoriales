@@ -202,9 +202,48 @@ git branch
 git status
 ```
 
-Cambiar el nombre de las ramas
+Crear nuevas ramas
+```zsh
+#Crea una rama llamada "nombre-rama".
+git branch nombre-rama
 
+#Cambia a la rama "nombre-rama".
+git checkout nombre-rama
+
+#Crea una rama llamada "nombre-rama" y se cambia a la misma.
+git checkout -b nombre-rama
+```
+
+Cambiar el nombre de las ramas
 ```zsh
 #Cambia el nombre de la rama de nombre-viejo a nombre-nuevo.
 git branch -m nombre-viejo nombre-nuevo
+```
+
+Unir ramas
+```zsh
+#Se mueve a "nombre-rama1" (que se supone está desfasada respecto a "nombre-rama2"). 
+git checkout nombre-rama1
+
+#Actualiza "nombre-rama1" con todos los commits de "nombre-rama2".
+git merge nombre-rama2
+```
+Al realizar un `merge` pueden darse 3 escenarios distintos:
+- La rama más atrasada ("nombre-rama1") no tiene commits, mientras "nombre-rama2" tiene uno o más commits que "nombre-rama1".
+  En este caso, al hacer el `merge` se aplica la estrategia (automática) "Fast-Forward". La cual consite en añadir de todos los commits nuevos de "nombre-rama2" en "nombre-rama1".
+
+- Ambas ramas "nombre-rama1" y "nombre-rama2" tienen commits que no están presentes en la otra, pero las modificaciones están en archivos diferentes o en parte diferentes de un mismo archivo, de manera que **Git** es capás de mezclar toda la información de manera automtica (no hay conflicto). En este caso, se usa una estrategia llamada "Recursive". Esta estrategia requiere un commit especial ("merge commit") en el cual se especifica (se abre un editor de código para que se escriba el mensaje del commit) el motivo por el cual es necesario hacer el `merge`.
+
+-  Ambas ramas "nombre-rama1" y "nombre-rama2" tienen commits que no están presentes en la otra, pero las modificaciones están presentes en las mismas lines de los mismos archivos (si además hay cambios como en el caso anterior, estos se resuelven de manera automática). En este caso, **Git** no es capás de mezclar toda la información de manera automtica (hay conflicto). Por tanto, hay que editar manualmente los archivos donde hay conflicto para solucionarlo. Las lineas donde hay conflicto apareceran duplicadas y remarcadas (una por cada rama) para facilitar la edición. Es muy recomendable usar editores como  **VSCode** porque resaltan las diferencias con colores, además provee algunos botones con opciones predeterminadas para la resolución del conflicto. Finalmente, hay que hacer un commit con el resultado de la solución del conflicto.
+
+Eliminar ramas
+```zsh
+#Elimina la rama "nombre-rama". Debemos de estar situados en una rama diferente. Da error si "nombre-rama" tiene commits que no se han integrado "merge" en alguna otra rama existente en el repo.
+git branch -d nombre-rama
+
+#Elimina (a la fuerza, es decir, no da error si hay commits que no estan presentes en las otras ramas) la rama "nombre-rama". Debemos de estar situados en una rama diferente.
+git branch -D nombre-rama
+
+#Igual que la anterior.
+git branch -d nombre-rama -f
 ```
