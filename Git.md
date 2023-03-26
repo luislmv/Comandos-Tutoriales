@@ -269,3 +269,41 @@ git tag
 git tag -d nombre-tag
 ```
 Se recomienda que `nombre-tag` tenga una estructura cemática del tipo `vN.M.K` por ejem: `v1.0.3`. Donde `N`, `M` y `K` son números enteros que representan distintos niveles de importancia de la versión. Más detalladamente, el número `N` representa una versión mayuor, en la cual hay grandes cambios y puede ser incompatible con versiones previas. El número `K` representa pequeñas correcciones de erros detectados, etc. (cambios menores). El número `M` puede tener cambios más importantes, pero no tan grandes como para generar incompatibilidad o romper partes de la versión previa.
+
+## Almacenamiento del trabajo en progreso (Stash)
+
+```zsh
+#Almacena todos los cambios posteriores al último commit y reestablece el estado del proyecto (último commit).
+git stash
+
+#Recupera los cambios guardados en el último "stash" y elimina a ese "stash" si no hay conflicto. En caso de conflicto, el stash se tendrá que eliminar manualmente después de resolverlo.
+git stash pop
+
+#Muestra la lista de todos los stash creados. Los elementos de las lista están identificados por "stash@{N}", N ={0, 1,...}. Donde 0 corresponde al último stash.
+git stash list
+
+#Mostra información adicional del "stash@{N}".
+git stash show stash@{N}
+
+#Es equivalente a "git stash show stash@{0}".
+git stash show
+
+#Muestr información adicional de todos los elementos de la lista.
+git stash list --stat
+
+#Restaura el estado del proyecto almacenado en "stash@{N}". No elimina a "stash@{N}". La eliminación tendrá que ser manual. 
+git stash apply stash@{N}
+
+#Elimina a "stash@{N}".
+git stash drop stash@{N}
+
+#Equivale a "git stash drop stash@{0}".
+git stash drop
+
+#Elimina a todos los stash creados.
+git stash clear
+```
+Al recuperar los `stash`, pueden surgir comflictos. Estos se gestionan de manera similar a los conflictos con `merge`.
+
+No es recomendable abusar de los `stash`, puesto que son muy confusos y complejos de gestionar. El `stash` debe tratarse como un almacen temporal, que permite almacenar modificaciones incompletas del proyecto (que no están listas para su uso) y que no se desean registrar mediante un commit en la historia del repo. Hay situaciones en la que esto puede ser útil (por ejem: cambiar de rama cuando hay modificaciones no registradas en un commit). Una vez finalizada la siguación, se recomiendo recuperar el estado del `stash` y eliminarlo.
+
