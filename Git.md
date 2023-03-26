@@ -99,7 +99,7 @@ nombre-directorio-no-seguido/
 *.ext
 ```
 
-## Crear commits
+## Crear y corregir (amend) commits
 
 Tomar una fotografía del estado actual del proyecto (hacer un commit)
 ```zsh
@@ -109,12 +109,13 @@ git commit -m "Comentario descriptivo en le commit"
 #Añade todos los archivos al stage y les tota una fotografía (equivale a "add ." sequido del un "commit -m", sólo añade los archivos a los que se les ha dado seguimiento, pero que tienen cambios pendientes).
 git commit -am "Comentario descriptivo en le commit"
 
-#Cambia el comentario del último commit por "Nuevo comentario descriptivo".
+#Cambia (corrige) el comentario del último commit por "Nuevo comentario descriptivo".
 git commit --amend -m "Nuevo comentario descriptivo"
 
 #Abre el editor por defecto (vim, nvim, etc.) para editar manualmente la info. (comentario, cambios en el commit, etc.) del último commit. 
 git commit --amend
 ```
+El parámetro `--amend` se puede usar también para añadir archivos adicionales al `commit` original. Para esto, se añaden los archivos al `stage` y se ejecutan uno de los dos comandos anteriores para concretar la corrección.
 
 ## Encontrar cambios en los archivos
 
