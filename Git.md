@@ -33,6 +33,9 @@ git config --global core.editor "nvim"
 #Este alias compacta (-s de --short) la salida de "status", pero añade la información de la rama (-b de --branch).
 git config --global alias.s "status -sb"
 
+#Este alias sirve para crear commits de manera más sencilla.
+git config --global alias.com "commit -m"
+
 #Este alias compacta de una manera muy elegante la salida de "log".
 git config --global alias.lg "log --oneline --decorate --all --graph"
 
@@ -44,6 +47,9 @@ git config --global init.defaultBranch main
 
 #Configura a git (linux y mac, en windows cambiar "input" por "true") para que maneje correctamente los saltos de linea.
 git config --global core.autocrlf input
+
+#Establece los colores para la salida de git (por defecto es "auto" que agrega colores a la salida estándar pero no lo hace si la salida se redirige a otros archivos o a comandos mediante tuberías). La opción "false" desactiva todo y "always" añade colores en todos los caso (salida estándar, archivos, tuberías, etc).
+git config --global color.ui true 
 
 #Muestra los parámetros que se han configurado.
 git config --global --list 
