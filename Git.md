@@ -314,3 +314,10 @@ Al recuperar los `stash`, pueden surgir comflictos. Estos se gestionan de manera
 
 No es recomendable abusar de los `stash`, puesto que son muy confusos y complejos de gestionar. El `stash` debe tratarse como un almacen temporal, que permite almacenar modificaciones incompletas del proyecto (que no están listas para su uso) y que no se desean registrar mediante un commit en la historia del repo. Hay situaciones en la que esto puede ser útil (por ejem: cambiar de rama cuando hay modificaciones no registradas en un commit). Una vez finalizada la siguación, se recomiendo recuperar el estado del `stash` y eliminarlo.
 
+## Repositorio remotos (GitHub, GitLab, etc.)
+
+```zsh
+git remote add nomb-origen https://nomb-dominio-plataforma/nomb-usuario/nomb-repo.git
+
+git remote -v
+```
