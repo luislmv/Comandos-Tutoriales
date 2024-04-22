@@ -424,6 +424,9 @@ git push nomb-origen :nomb-rama
 
 #Cambia el nombre (elimina la rama y crea una con el nuevo nombre) de la rama "nomb-rama" por "nuevo-nomb-rama" en el repo remoto nomb-origen. Se recomienda cambiar primero el nombre de la rama en el repo local a "nuevo-nomb-rama" para que sea clara la correspondencia con el repo remoto.
 git push nomb-origen :nomb-rama nuevo-nomb-rama
+
+# Hace push a todos los tags en el repo local (Los tags no se suben de manera automática al repo remoto al hacer push sobre una rama. Por tanto, hay que ejecutar este comando explícitamente para enviar los tags al repo remoto.)
+git push --tags
 ```
 
 Actualizar el repo local desde el repo remoto.
